@@ -1,0 +1,26 @@
+
+<h1>Listing skwerkflows</h1>
+
+
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+  
+<table>
+
+<% @skwerkflows.each do |skwerkflow| %>
+  <tr>
+    <td><%= skwerkflow.name %></td>
+    <td><%= link_to 'Show', skwerkflow %></td>
+    <td><%= link_to 'Edit', edit_skwerkflow_path(skwerkflow) %></td>
+    <td><%= link_to 'Destroy', skwerkflow, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Execute', execute_skwerkflow_path(skwerkflow)  %> </td> 
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Skwerkflow', new_skwerkflow_path %><br />
+<%= link_to 'View Instruction Factories', instruction_factories_path %><br />
+

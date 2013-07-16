@@ -1,0 +1,25 @@
+
+<h1>Listing instructions</h1>
+
+
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+  
+<table>
+
+<% @instructions.each do |instruction| %>
+  <tr>
+    <td><%= instruction.name %></td>
+    <td><%= link_to 'Show', instruction %></td>
+    <td><%= link_to 'Edit', edit_instruction_path(instruction) %></td>
+    <td><%= link_to 'Destroy', instruction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Execute', execute_instruction_path(instruction)  %> </td> 
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'View Instruction Factories', instruction_factories_path %><br />
+

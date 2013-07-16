@@ -1,0 +1,35 @@
+
+ 
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @skwerkflow.name %>
+</p>
+
+<table>
+<% if @instructions_list%>
+<%       @instructions_list.each do |instruction| %>
+  <tr>
+    <td><%= instruction.name %></td>
+    <td><%= link_to 'Show', instruction %></td>
+    <td><%= link_to 'Edit', edit_instruction_path(instruction) %></td>
+    <td><%= link_to 'Destroy', instruction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+<% else %>
+ There are no instructions in this skwerkflow
+ <%end%>
+
+</table>
+
+<br />
+
+<%#= link_to 'Execute Instruction Set', @instruction_set, method: :execute %>
+
+
+<%= link_to 'New Instruction', new_instruction_path(:set_id => params[:id])%>
+
+<%#= link_to 'Edit', edit_instruction_set_path(params[:id]) %> 
+
+<%= link_to 'Back', skwerkflows_path %>

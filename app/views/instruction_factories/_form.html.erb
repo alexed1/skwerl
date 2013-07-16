@@ -1,0 +1,35 @@
+<%= form_for(@instruction_factory) do |f| %>
+  <% if @instruction_factory.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@instruction_factory.errors.count, "error") %> prohibited this instruction_factory from being saved:</h2>
+
+      <ul>
+      <% @instruction_factory.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+   <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+   <p>
+    <%= f.label :classname %><br>
+    <%= f.text_field :classname %>
+  </p>
+
+    <div class="field">
+    <%= f.label :code %><br />
+    <%= f.text_area :code %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

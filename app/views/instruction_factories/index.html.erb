@@ -1,0 +1,27 @@
+
+<h1>Listing instruction_factories</h1>
+
+
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+  
+<table>
+
+<% @instruction_factories.each do |instruction_factory| %>
+  <tr>
+    <td><%= instruction_factory.name %></td>
+    <td><%= instruction_factory.classname %></td>
+    <td><%= link_to 'Show', instruction_factory %></td>
+    <td><%= link_to 'Edit', edit_instruction_factory_path(instruction_factory) %></td>
+    <td><%= link_to 'Destroy', instruction_factory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Execute', instruction_factory, method: :execute %> </td> 
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New instruction_factory', new_instruction_factory_path %><br />
+
+
